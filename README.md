@@ -1,5 +1,7 @@
 # HALs Killfeed
 Adds a configurable kill ticker to ArmA which tracks deaths and displays them on a client's screen.
+
+### Features
 - Globally displays kills.
 - Displays the weapon used by the killer (works with grenades, explosives, roadkills etc).
 - Automatically works with spawned units.
