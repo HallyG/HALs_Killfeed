@@ -30,7 +30,7 @@ private _fnc_getConfigValue = {
 };
 
 HALs_killfeed_debug = ([missionConfigFile >> "cfgHALsKillfeed" >> "debug", 0] call _fnc_getConfigValue) isEqualTo 1;
-HALs_killfeed_show = ([missionConfigFile >> "cfgHALsKillfeed" >> "showKillfeed", 1] call _fnc_getConfigValue) isEqualTo 1;
+HALs_killfeed_showKillfeed = ([missionConfigFile >> "cfgHALsKillfeed" >> "showKillfeed", 1] call _fnc_getConfigValue) isEqualTo 1;
 HALs_killfeed_showAIKills = ([missionConfigFile >> "cfgHALsKillfeed" >> "showAIKills", 1] call _fnc_getConfigValue) isEqualTo 1;
 HALs_killfeed_size = ([missionConfigFile >> "cfgHALsKillfeed" >> "size", 5] call _fnc_getConfigValue) min 10 max 1;
 HALs_killfeed_sideColour = ([missionConfigFile >> "cfgHALsKillfeed" >> "sideColour", 1] call _fnc_getConfigValue) isEqualTo 1;
