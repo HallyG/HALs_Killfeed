@@ -6,10 +6,10 @@ Adds a configurable kill ticker to ArmA which tracks deaths and displays them on
 - Entirely client based - no unneccesary network traffic.
 - ctrlCreates an **RscControlsGroupNoScrollbars** control on **display 46** with the **idc 3200**.
 
-Team Based colours:
+Side-Colour style:
 ![](https://i.imgur.com/EXL168R.jpg)
 
-Battlefield Style colours:
+Battlefield-Colour style:
 ![](https://i.imgur.com/nd66OCR.jpg)
 
 ## Dependencies
