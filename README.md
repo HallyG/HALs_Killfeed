@@ -8,3 +8,6 @@ Adds a configurable kill ticker to ArmA which tracks deaths and displays them on
 ## Maintainers
 The people responsible for merging changes to this component or answering potential questions.
 * [HallyG](https://github.com/HallyG)
+
+
+![](https://i.imgur.com/EXL168R.jpg)
