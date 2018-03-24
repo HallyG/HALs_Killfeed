@@ -27,7 +27,7 @@ if (isNull _instigator) then {
 	_instigator = UAVControl vehicle _killer select 0;
 };
 
-if (!isPlayer _killed && !isPlayer _instigator && !isPlayer _killer) exitWith {};
+if (!HALs_killfeed_showAIKills && {!isPlayer _killed && !isPlayer _instigator && !isPlayer _killer}) exitWith {};
 
 try {
 	if (_killed isEqualTo _killer) then {
