@@ -42,7 +42,7 @@ addMissionEventHandler ["EachFrame", {
 		};
 		
 		_ctrlKillfeed = uiNamespace getVariable ["HALs_ctrlKillfeed", controlNull];
-		if (HALs_killfeed_show) then {
+		if (HALs_killfeed_showKillfeed) then {
 			_ctrlKillfeed ctrlSetFade 0;
 			_ctrlKillfeed ctrlCommit 0;
 			
