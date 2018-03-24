@@ -9,12 +9,6 @@ Adds a configurable kill ticker to ArmA which tracks deaths and displays them on
 ## Installation\Usage
 [Killfeed Wiki](https://github.com/HallyG/HALs_Killfeed/wiki/Configuration "Configuration")
 
-#Side-Colour style:
-#![](https://i.imgur.com/EXL168R.jpg)
-
-#Battlefield-Colour style:
-#![](https://i.imgur.com/nd66OCR.jpg)
-
 ## Dependencies
 - No Addons required.
 
