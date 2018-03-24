@@ -1,0 +1,4 @@
+#include "killfeed\config.hpp"
+class cfgFunctions {
+	#include "killfeed\functions.cpp"
+};
