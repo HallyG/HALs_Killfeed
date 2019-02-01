@@ -2,13 +2,16 @@
 	Function: HALs_fnc_parseKill
 	Author: HallyG
 	Formats the killfeed message.
-	
+
 	Argument(s):
-	0: None
-	
+	0: Killed <OBJECT>
+	1: Killer <OBJECT>
+	2: Instigator <OBJECT>
+	3: Projectile <STRING>
+
 	Return Value:
 	None
-	
+
 	Example:
 	[] call HALs_fnc_parseKill;
 __________________________________________________________________*/
@@ -33,19 +36,23 @@ try {
 	if (_killed isEqualTo _killer) then {
 		["%1 [%3] %2", _killed, _killed, "SUICIDE"]
 	};
-	
+
 	if (isNull _killer && isNull _instigator) then {
 		throw ["%1 [%3] %2", _killed, _killed, "SUICIDE"]
 	};
-	
+
 	if ((vehicle _killed) isEqualTo _killer) then {
 		throw ["%1 [%3] %2", _killed, _killed, "SUICIDE"]
 	};
-	
+
 	if (isNull _instigator && {!alive _killer}) then {
-		throw ["%1 [%3] %2", _killed, _killed, "KILLED"] //"EXP{LOSION"
+		if (_projectile != "") then {
+			throw ["%1 [%3] %2", _killed, _killed, "EXPLOSION"]
+		} else {
+			throw ["%1 [%3] %2", _killed, _killed, "KILLED"]
+		};
 	};
-	
+
 	if (isNull _instigator) then {
 		throw ["%1 [%3] %2", _killer, _killed, "ROADKILL"]
 	};
@@ -71,19 +78,18 @@ try {
 	if (!isNull _instigator) then {
 		_projectileType = call {
 			_projectileSimul = toUpper getText (configFile >> "CfgAmmo" >> _projectile >> "simulation");
-			
+
 			if (_projectileSimul == "SHOTGRENADE") exitWith {"GRENADE"};
 			if (_projectileSimul == "SHOTSHELL") exitWith {"EGLM HE"};
 			if (_projectileSimul in ["SHOTMINE", "SHOTDIRECTIONALBOMB", "SHOTBOUNDINGMINE"]) exitWith {"EXPLOSIVE"};
-			
+
 			if (isClass (configFile >> "cfgWeapons" >> currentWeapon _instigator)) exitWith {
 				getText (configFile >> "cfgWeapons" >> [currentWeapon _instigator] call BIS_fnc_baseWeapon >> "displayName")
-				// "<img image='" + getText (configFile >> 'CfgWeapons' >> [currentWeapon _instigator] call BIS_fnc_baseWeapon >> 'picture') + "' size='1' />";
 			};
 
 			"KILLED"
 		};
-		
+
 		throw ["%1 [%3] %2", _instigator, _killed, toUpper _projectileType]
 	};
 
@@ -94,7 +100,14 @@ try {
 	{
 		_exception set [
 			_forEachIndex + 1,
-			format ["<t color='%2'>%1</t>", [getText (configFile >> "cfgVehicles" >> typeOf _x >> "displayName"), name _x] select (isPlayer _x), HALs_killfeed_sideColourArray select ([group _x] call HALs_fnc_getSideColour)]
+			format [
+				"<t color='%2' size = '1'>%1</t>",
+				[getText (configFile >> "cfgVehicles" >> typeOf _x >> "displayName"), name _x] select (isPlayer _x),
+				([
+					["#1a66b3", "#1a991a", "#991a1a"],// ["#74BADE", "#8CAF60", "#E7A98F"], //
+					["#1a66b3", "#991a1a", "#1a991a", "#660080"]
+				] select HALs_killfeed_sideColour) select ([group _x] call HALs_fnc_getSideColour)
+			]
 		];
 	} forEach [_killer, _killed];
 
