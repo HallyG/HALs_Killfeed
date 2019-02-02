@@ -26,7 +26,7 @@ addMissionEventHandler ["EntityKilled", {
 	params ["_killed", "_killer", "_instigator"];
 
 	if ((typeOf _killed iskindOf "CAManBase")) then {
-		private _projectile = _killed getVariable ["HALs_tdm_lastDamageSource", ""];
+		private _projectile = _killed getVariable ["HALs_killfeed_lastDamageSource", ""];
 
 		[_killed, _killer, _instigator, _projectile] call HALs_fnc_parseKill;
 	};
