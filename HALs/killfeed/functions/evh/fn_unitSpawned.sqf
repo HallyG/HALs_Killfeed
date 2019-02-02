@@ -18,7 +18,7 @@ __________________________________________________________________*/
 			params ["_soldier", "_selection", "_damage", "_shooter", "_projectile", "_hitPointIndex"];
 
 			if (!isNull _shooter) then {
-				_unit setVariable ["HALs_killfeed_lastDamageSource", _projectile, true];
+				_soldier setVariable ["HALs_killfeed_lastDamageSource", _projectile, true];
 			};
 
 			_damage
