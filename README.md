@@ -1,4 +1,4 @@
-## HALs Killfeed
+## HALs Killfeed v1.1
 Adds a configurable kill-ticker which displays the most recent global kills on every client's screen.
 
 #### Features
