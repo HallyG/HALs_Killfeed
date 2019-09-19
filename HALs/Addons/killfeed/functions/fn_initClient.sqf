@@ -13,17 +13,14 @@
 	[] call HALs_killfeed_fnc_initClient;
 __________________________________________________________________*/
 if (!hasInterface) exitWith {};
+if (!isNil "HALs_killfeed_colours") exitWith {};
 
-[
-    ["CfgHALsKillfeed"],
-    "HALs_killfeed_",
-    [
-    		["size", 0, {_this min 10 max 1}],
-            ["messageLifetime", 3, {_this max 1 min 10}],
-    		["showAIKills", 0, {_this isEqualTo 1}],
-    		["sideColour", 1, {_this isEqualTo 1}]
-    ]
-] call HALs_fnc_getModuleSettings;
+private _cfg = missionConfigFile >> "CfgHALsKillfeed";
+private _prefix = "HALs_killfeed";
+missionNamespace setVariable [format ["%1_%2", _prefix, "size"], getNumber (_cfg >> "size") min 10 max 1];
+missionNamespace setVariable [format ["%1_%2", _prefix, "messageLifetime"], getNumber (_cfg >> "messageLifetime") min 10 max 1];
+missionNamespace setVariable [format ["%1_%2", _prefix, "showAIKills"], getNumber (_cfg >> "showAIKills") isEqualTo 1];
+missionNamespace setVariable [format ["%1_%2", _prefix, "sideColour"], getNumber (_cfg >> "sideColour") isEqualTo 1];
 
 HALs_killfeed_colours = [
     ["#1a66b3", "#1a991a", "#991a1a"],
