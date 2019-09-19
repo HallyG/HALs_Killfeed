@@ -4,7 +4,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/HallyG/HALs_Killfeed/releases/latest">
-        <img src="https://img.shields.io/badge/Version-1.2.0-blue.svg?style=flat-square" alt="HALs Killfeed Version">
+        <img src="https://img.shields.io/badge/Version-1.2.1-blue.svg?style=flat-square" alt="HALs Killfeed Version">
     </a>
     <a href="https://github.com/HallyG/HALs_Killfeed/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-GPLv3-red.svg?style=flat-square" alt="HALs Killfeed License">
