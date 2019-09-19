@@ -1,5 +1,5 @@
-#include "HALs\killfeed\config.hpp"
+#include "HALs\Addons\killfeed\config.hpp"
 
 class cfgFunctions {
-	#include "HALs\killfeed\functions.cpp"
+	#include "HALs\Addons\killfeed\functions.cpp"
 };
